@@ -10,8 +10,8 @@ function Layout() {
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((resp) => setUsr(resp.data))
+      .get("https://randomuser.me/api/?results=10")
+      .then((resp) => setUsr(resp.data.results))
       .catch((err) => console.log(err));
   }, []);
 
@@ -21,10 +21,10 @@ function Layout() {
         {usr.map((e, i) => {
           return (
             <div key={i} className="card">
-              <img src={p3} className="card-img-top" alt="..." />
+              <img src={e.picture.large} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">{e.name}</h5>
-                <h3 className="card-title">{e.username}</h3>
+                <h5 className="card-title">{e.name.first}</h5>
+                <h3 className="card-title">{e.login.username}</h3>
                 <Link to={`/details/${e.id}`} className="btn btn-warning">
                   Details
                 </Link>

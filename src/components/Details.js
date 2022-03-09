@@ -10,7 +10,7 @@ function Details() {
 
   useEffect(() => {
     axios
-      .get(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .get(`https://randomuser.me/api/?results=10/${id}`)
       .then((resp) => setUsr(resp.data))
       .catch((err) => console.log(err));
   }, []);
@@ -26,7 +26,7 @@ function Details() {
     >
       <h1>Detail of User</h1>
       <h3>Name: {usr.name}</h3>
-      <p className="h4">username: {usr.username}</p>
+      <p className="h4">username: {usr.name.first}</p>
       <p className="h4">email: {usr.email}</p>
       <p className="h4">phone: {usr.phone}</p>
       <p className="h4">website: {usr.website}</p>
