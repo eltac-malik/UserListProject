@@ -10,10 +10,11 @@ function Layout() {
 
   useEffect(() => {
     axios
-      .get("https://randomuser.me/api/?results=10")
-      .then((resp) => setUsr(resp.data.results))
+      .get("https://reqres.in/api/users/")
+      .then((resp) => setUsr(resp.data.data))
       .catch((err) => console.log(err));
   }, []);
+
 
   return (
     <div className="container card-base">
@@ -21,10 +22,10 @@ function Layout() {
         {usr.map((e, i) => {
           return (
             <div key={i} className="card">
-              <img src={e.picture.large} className="card-img-top" alt="..." />
+              <img src={e.avatar} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">{e.name.first}</h5>
-                <h3 className="card-title">{e.login.username}</h3>
+                <h5 className="card-title">{e.first_name}</h5>
+                <h3 className="card-title">{e.last_name}</h3>
                 <Link to={`/details/${e.id}`} className="btn btn-warning">
                   Details
                 </Link>

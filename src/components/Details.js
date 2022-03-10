@@ -10,29 +10,39 @@ function Details() {
 
   useEffect(() => {
     axios
-      .get(`https://randomuser.me/api/?results=10/${id}`)
-      .then((resp) => setUsr(resp.data))
+      .get(`https://reqres.in/api/users/${id}`)
+      .then((resp) => setUsr(resp.data.data))
       .catch((err) => console.log(err));
   }, []);
 
+  console.log(usr.avatar);
+
   return (
-    <div
-      style={{
-        textAlign: "left",
-        maxWidth: "1200px",
-        width: "100%",
-        margin: "10px auto",
-      }}
-    >
-      <h1>Detail of User</h1>
-      <h3>Name: {usr.name}</h3>
-      <p className="h4">username: {usr.name.first}</p>
-      <p className="h4">email: {usr.email}</p>
-      <p className="h4">phone: {usr.phone}</p>
-      <p className="h4">website: {usr.website}</p>
-      <Link to="/" className="btn btn-warning">
-        Back
-      </Link>
+    <div>
+
+      <div className="card-pp">
+        <img src={usr.avatar} alt="John" className="about-pp" />
+        <h1>John Doe</h1>
+        <p className="title">CEO Founder, Example</p>
+        <p>Harvard University</p>
+        <div className="icon-pp">
+          <a href="#">
+            <i className="fa fa-dribbble"></i>
+          </a>
+          <a href="#">
+            <i className="fa fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i className="fa fa-linkedin"></i>
+          </a>
+          <a href="#">
+            <i className="fa fa-facebook"></i>
+          </a>
+        </div>
+        <p>
+          <button>Contact</button>
+        </p>
+      </div>
     </div>
   );
 }
