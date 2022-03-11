@@ -15,16 +15,15 @@ function Details() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(usr.avatar);
 
   return (
-    <div>
+    <div className="card-title">
 
       <div className="card-pp">
         <img src={usr.avatar} alt="John" className="about-pp" />
-        <h1>John Doe</h1>
+        <h1>{usr.first_name}  { usr.last_name}</h1>
         <p className="title">CEO Founder, Example</p>
-        <p>Harvard University</p>
+        <p>{usr.email}</p>
         <div className="icon-pp">
           <a href="#">
             <i className="fa fa-dribbble"></i>
@@ -40,8 +39,9 @@ function Details() {
           </a>
         </div>
         <p>
-          <button>Contact</button>
+          <button className="button">Contact</button>
         </p>
+          <Link className="button" to='/'>Back</Link>
       </div>
     </div>
   );

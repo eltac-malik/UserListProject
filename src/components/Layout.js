@@ -26,7 +26,7 @@ function Layout() {
               <div className="card-body">
                 <h5 className="card-title">{e.first_name}</h5>
                 <h3 className="card-title">{e.last_name}</h3>
-                <Link to={`/details/${e.id}`} className="btn btn-warning">
+                <Link to={`/details/${e.id}`} className="button">
                   Details
                 </Link>
               </div>
